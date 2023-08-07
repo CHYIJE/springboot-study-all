@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성철이네바른야채</title>
+    <link rel="stylesheet" type="text/css" href="css/baleun.css">
+</head>
+<body>
+    <div class="right-links">
+        <!-- 로그인, 회원가입, 마이페이지, 장바구니, 고객센터 링크를 우측에 배치 -->
+        <div>
+            <a href="/auth/login">로그인</a>
+        </div>
+        <div>
+            <a href="/auth/join">회원가입</a>
+        </div>
+        <div>
+            <a href="#">마이페이지</a>
+        </div>
+        <div>
+            <a href="/cart/shopingcart">장바구니</a>
+        </div>
+        <div>
+            <a href="/ucenter/usercenter">고객센터</a>
+        </div>
+    </div>
+
+    <!-- 검색, 로고, 이벤트, 레시피 -->
+    <div class="search-bar">
+        <input type="text">
+        <button>검색</button>
+        <div class="logo">
+            <span><img src="/image/logo.png"></span>
+        </div>
+        <div class="event-recipe">
+            <span>이벤트</span>
+            <span>레시피</span>
+        </div>
+    </div>
+
+    <!-- 스폐셜 섹션 -->
+    <div class="special-section">
+        <span>대충 오늘의 야채</span>
+    </div>
+
+    <!-- 기존 야채들을 그리드 레이아웃으로 배치 -->
+    <div class="vegetable-sections">
+        <div>기존야채</div>
+        <div>기존야채</div>
+        <div>기존야채</div>
+        <!-- 필요한 만큼 "기존야채" 섹션을 추가하세요 -->
+    </div>
+    <script>
+        const login = () => {
+            location.replace("/auth/login");
+        }
+        const cart = () => {
+            location.replace("/shopingcart/shopingcart")
+        }
+        const usercenter = () => {
+            location.replace("/ucenter/usercenter")
+        }
+    </script>
+</body>
+</html>

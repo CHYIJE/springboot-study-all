@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+</head>
+<body>
+    <h1>회원가입 페이지</h1>
+        <div>
+            <span>아이디 : </span>
+            <input id="id" type="text">
+        </div>
+    <div>
+        <span>비밀번호 : </span>
+        <input id="password" type="password">
+    </div>
+    <div>
+        <button onclick="requestJoin()">회원가입</button>
+    </div>
+    <script>
+        const requestJoin = () => {
+           const idInputTag = document.getElementById("id");
+
+           const passwordInputTag = document.getElementById("password");
+
+            //비워졌는지 아닌지 체크하기 위해 필요
+           if(idInputTag.value == ""){
+            alert("아이디를 입력해주세요.");
+            return;
+           }
+
+           const dto = {    // 자바 스크립트 객체
+            user : {
+                id : idInputTag.value,
+                password : passwordInputTag.value
+            },
+        }
+        
+        // request
+        fetch("/api/v1/auth/join", {
+            method : "POST",
+            headers : {
+                "Content-Type" : "application/json"  //json을 받기위해 무조건 적어줘야한다.
+            },
+            body : JSON.stringify(dto)   // 자바 스크립트객체 자체를 바로 못쓰기에 json으로 변환 json이 변환기인셈
+           })
+           
+           // rseponse
+           .then(response => response.text())   //서버에서 받은 타입으로 보내야한다.
+           .then(result => {
+            alert(result);
+           });
+        
+        }
+    
+    </script>
+</body>
+</html>
