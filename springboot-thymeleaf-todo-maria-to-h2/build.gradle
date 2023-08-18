@@ -37,3 +37,18 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+
+// 마리아 -> h2
+// 
+// resources 밑에 h2/data.sql 만들기
+// 
+// 디비버에서 sql생성 insert 이용해서
+// data.sql에 쿼리문 넣기
+// 
+// 빌드 그래들에서 maria -> h2 디펜던시 변경
+// 
+// application.yml
+// 데이터소스 / h2콘솔 / jpa 방언 
+// 
+// ddl-auto : create로 바꾸기
